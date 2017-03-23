@@ -13,8 +13,7 @@
     "plugins": [
         "transform-runtime",
         "transform-decorators-legacy",
-        "transform-class-properties",
-        "react-hot-loader/babel"
+        "transform-class-properties"
     ],
     "comments": false,
     "env": {
@@ -25,6 +24,33 @@
             ],
             "plugins": [
                 "istanbul"
+            ]
+        },
+        "development": {
+            "plugins": [
+                [
+                    "react-transform",
+                    {
+                        "transforms": [
+                            {
+                                "transform": "react-transform-hmr",
+                                "imports": [
+                                    "react"
+                                ],
+                                "locals": [
+                                    "module"
+                                ]
+                            },
+                            {
+                                "transform": "react-transform-catch-errors",
+                                "imports": [
+                                    "react",
+                                    "redbox-react"
+                                ]
+                            }
+                        ]
+                    }
+                ]
             ]
         }
     }
