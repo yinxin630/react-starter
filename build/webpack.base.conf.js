@@ -30,12 +30,14 @@ module.exports = {
                 enforce: 'pre',
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test')],
+                include: [resolve('src')],
+                exclude: /node_modules/,
             },
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                include: [resolve('src'), resolve('test')],
+                include: [resolve('src')],
+                exclude: /node_modules/,
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
