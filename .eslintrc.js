@@ -23,6 +23,7 @@ module.exports = {
         'no-restricted-syntax': [2, 'WithStatement'],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
-        'react/jsx-filename-extension': [0],
+        'react/jsx-filename-extension': 0,
+        'react/prefer-stateless-function': 0,
     }
 };
