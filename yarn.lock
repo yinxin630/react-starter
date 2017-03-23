@@ -3956,10 +3956,6 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-pure-render@^1.0.2:
-  version "1.0.2"
-  resolved "http://registry.npm.taobao.org/react-pure-render/download/react-pure-render-1.0.2.tgz#9d8a928c7f2c37513c2d064e57b3e3c356e9fabb"
-
 react-transform-catch-errors@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/react-transform-catch-errors/download/react-transform-catch-errors-1.0.2.tgz#1b4d4a76e97271896fc16fe3086c793ec88a9eeb"
@@ -3974,12 +3970,6 @@ react-transform-hmr@^1.0.4:
 react-transform-log-render@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/react-transform-log-render/download/react-transform-log-render-1.0.0.tgz#95163bd20fe6edbfb58053ff23d110635c0b5d0b"
-
-react-transform-render-visualizer@^0.4.0:
-  version "0.4.0"
-  resolved "http://registry.npm.taobao.org/react-transform-render-visualizer/download/react-transform-render-visualizer-0.4.0.tgz#7ac1e527d9e3663142b7d1ec6219f58cbd57ef10"
-  dependencies:
-    react-pure-render "^1.0.2"
 
 react-transform-style@^1.0.4:
   version "1.0.4"

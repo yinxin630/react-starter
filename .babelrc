@@ -53,9 +53,6 @@
                             },
                             {
                                 "transform": "react-transform-log-render"
-                            },
-                            {
-                                "transform": "react-transform-render-visualizer"
                             }
                         ]
                     }
