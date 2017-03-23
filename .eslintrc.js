@@ -1,5 +1,8 @@
 module.exports = {
-    'extends': "airbnb",
+    'extends': [
+        'airbnb',
+        'esnext',
+    ],
     'env': {
         'browser': true,
         'node': true,
@@ -25,5 +28,6 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         'react/jsx-filename-extension': 0,
         'react/prefer-stateless-function': 0,
+        'no-invalid-this': 0,
     }
 };

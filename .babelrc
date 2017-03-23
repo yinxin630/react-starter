@@ -47,6 +47,15 @@
                                     "react",
                                     "redbox-react"
                                 ]
+                            },
+                            {
+                                "transform": "react-transform-style"
+                            },
+                            {
+                                "transform": "react-transform-log-render"
+                            },
+                            {
+                                "transform": "react-transform-render-visualizer"
                             }
                         ]
                     }
