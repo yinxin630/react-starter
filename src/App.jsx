@@ -15,7 +15,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <Hello />
+                <Hello is={this.state.count % 2 === 0} />
                 <div>{this.state.count}</div>
                 <button onClick={this.handleClick}>click</button>
             </div>
