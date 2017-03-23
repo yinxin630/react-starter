@@ -1,11 +1,12 @@
 module.exports = {
     'extends': [
-        'airbnb',
         'esnext',
+        'airbnb',
     ],
     'env': {
         'browser': true,
         'node': true,
+        'es6': true,
     },
     'plugins': [
         'react',
