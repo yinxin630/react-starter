@@ -1860,6 +1860,15 @@ eslint-import-resolver-node@^0.2.0:
     object-assign "^4.0.1"
     resolve "^1.1.6"
 
+eslint-loader@^1.6.3:
+  version "1.6.3"
+  resolved "http://registry.npm.taobao.org/eslint-loader/download/eslint-loader-1.6.3.tgz#52fdcb32e9e8355108f8380dad4efe51a28986f9"
+  dependencies:
+    find-cache-dir "^0.1.1"
+    loader-utils "^1.0.2"
+    object-assign "^4.0.1"
+    object-hash "^1.1.4"
+
 eslint-module-utils@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/eslint-module-utils/download/eslint-module-utils-2.0.0.tgz#a6f8c21d901358759cdc35dbac1982ae1ee58bce"
@@ -3346,6 +3355,10 @@ oauth-sign@~0.8.1:
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "http://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+
+object-hash@^1.1.4:
+  version "1.1.7"
+  resolved "http://registry.npm.taobao.org/object-hash/download/object-hash-1.1.7.tgz#a8d83fdf5d4583a4e2e7ffc18e8915e08482ef52"
 
 object-keys@^1.0.10, object-keys@^1.0.8:
   version "1.0.11"
