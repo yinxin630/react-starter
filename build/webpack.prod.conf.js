@@ -8,6 +8,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+const pages = require('../config//pages');
+
+const htmlPlugins = pages.map(page => (
+    new HtmlWebpackPlugin(Object.assign({
+        title: 'aaaaa',
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+        },
+        chunksSortMode: 'dependency',
+    }, page))
+));
 
 const env = config.build.env;
 
@@ -38,25 +51,12 @@ const webpackConfig = merge(baseWebpackConfig, {
             filename: utils.assetsPath('css/[name].[contenthash].css'),
         }),
         new OptimizeCSSPlugin(),
-        new HtmlWebpackPlugin({
-            filename: config.build.index,
-            template: 'index.html',
-            inject: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true,
-            },
-            chunksSortMode: 'dependency',
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: module => (
                 module.resource &&
                 /\.js$/.test(module.resource) &&
-                module.resource.indexOf(
-                    path.join(__dirname, '../node_modules'),
-                ) === 0
+                module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
             ),
         }),
         new webpack.optimize.CommonsChunkPlugin({
@@ -70,25 +70,20 @@ const webpackConfig = merge(baseWebpackConfig, {
                 ignore: ['.*'],
             },
         ]),
+        ...htmlPlugins,
     ],
 });
 
 if (config.build.productionGzip) {
     const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
-    webpackConfig.plugins.push(
-        new CompressionWebpackPlugin({
-            asset: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: new RegExp(
-                `\\.(${
-                config.build.productionGzipExtensions.join('|')
-                })$`,
-            ),
-            threshold: 10240,
-            minRatio: 0.8,
-        }),
-    );
+    webpackConfig.plugins.push(new CompressionWebpackPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: new RegExp(`\\.(${config.build.productionGzipExtensions.join('|')})$`),
+        threshold: 10240,
+        minRatio: 0.8,
+    }));
 }
 
 if (config.build.bundleAnalyzerReport) {
