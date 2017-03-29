@@ -11,15 +11,15 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const pages = require('../config//pages');
 
 const htmlPlugins = pages.map(page => (
-    new HtmlWebpackPlugin(Object.assign({
-        title: 'aaaaa',
+    new HtmlWebpackPlugin(Object.assign(page, {
+        chunks: ['vendor', 'manifest', ...page.chunks],
         minify: {
             removeComments: true,
             collapseWhitespace: true,
             removeAttributeQuotes: true,
         },
         chunksSortMode: 'dependency',
-    }, page))
+    }))
 ));
 
 const env = config.build.env;
