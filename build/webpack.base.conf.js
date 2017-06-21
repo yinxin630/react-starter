@@ -24,7 +24,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
         alias: {
-            react$: 'react/dist/react.js',
             '@': resolve('src'),
         },
     },
