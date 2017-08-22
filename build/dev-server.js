@@ -12,6 +12,7 @@ const webpack = require('webpack');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('./webpack.dev.conf');
 
+const host = process.env.HOST || config.dev.host;
 const port = process.env.PORT || config.dev.port;
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
 const proxyTable = config.dev.proxyTable;
@@ -52,7 +53,7 @@ app.use(hotMiddleware);
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
-const uri = `http://localhost:${port}`;
+const uri = `http://${host}:${port}`;
 
 devMiddleware.waitUntilValid(() => {
     console.log(`> Listening at ${uri}\n`);
