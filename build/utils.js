@@ -26,7 +26,7 @@ exports.cssLoaders = (options) => {
 
     function generateLoaders(loader, loaderOptions) {
         const loaders = [cssLoader];
-        if (config.commonn.convertPxToRem) {
+        if (config.commonn.convertPxToRem.enable) {
             loaders.push(pxremLoader);
         }
         if (loader) {
