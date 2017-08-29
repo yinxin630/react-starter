@@ -19,9 +19,16 @@ exports.cssLoaders = (options) => {
             sourceMap: options.sourceMap,
         },
     };
+    const pxremLoader = {
+        loader: 'pxrem-loader',
+        options: config.commonn.convertPxToRem.options,
+    };
 
     function generateLoaders(loader, loaderOptions) {
         const loaders = [cssLoader];
+        if (config.commonn.convertPxToRem) {
+            loaders.push(pxremLoader);
+        }
         if (loader) {
             loaders.push({
                 loader: `${loader}-loader`,
