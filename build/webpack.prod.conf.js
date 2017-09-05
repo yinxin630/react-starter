@@ -26,10 +26,18 @@ const env = config.build.env;
 
 const webpackConfig = merge(baseWebpackConfig, {
     module: {
-        rules: utils.styleLoaders({
-            sourceMap: config.build.productionSourceMap,
-            extract: true,
-        }),
+        rules: [
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        'postcss-loader',
+                        'less-loader',
+                    ],
+                }),
+            },
+        ],
     },
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
