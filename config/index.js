@@ -3,12 +3,18 @@ const path = require('path');
 module.exports = {
     commonn: {
         convertPxToRem: {
-            enable: true,
+            enable: false,
             options: {
                 rootValue: 108, // 设计稿为3倍图
                 propList: ['*', '!border'],
                 unitPrecision: 4,
                 replace: true,
+            },
+        },
+        autoPrefix: {
+            enable: true,
+            options: {
+                browsers: ['last 3 versions'],
             },
         },
     },

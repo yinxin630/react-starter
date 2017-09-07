@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const utils = require('./utils');
 const config = require('../config');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
@@ -14,16 +15,7 @@ Object.keys(baseWebpackConfig.entry).forEach((name) => {
 
 module.exports = merge(baseWebpackConfig, {
     module: {
-        rules: [
-            {
-                test: /\.less$/,
-                use: [
-                    'style-loader',
-                    'postcss-loader',
-                    'less-loader',
-                ],
-            },
-        ],
+        rules: utils.getStyleLoaders(),
     },
     devtool: '#cheap-module-eval-source-map',
     plugins: [
