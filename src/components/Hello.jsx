@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import '../styles/hello.less';
 
 export default function Hello({ is }) {
@@ -11,5 +11,5 @@ export default function Hello({ is }) {
 }
 
 Hello.propTypes = {
-    is: React.PropTypes.bool.isRequired,
+    is: PropTypes.bool.isRequired,
 };
