@@ -19,7 +19,6 @@ const htmlPlugins = pages.map(page => (
             removeAttributeQuotes: true,
         },
         chunksSortMode: 'dependency',
-        hash: true,
     }))
 ));
 
