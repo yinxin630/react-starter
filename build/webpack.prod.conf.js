@@ -19,10 +19,9 @@ const htmlPlugins = pages.map(page => (
             removeAttributeQuotes: true,
         },
         chunksSortMode: 'dependency',
+        hash: true
     }))
 ));
-
-const { env } = config.build;
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: 'production',
@@ -32,35 +31,29 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
+        filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
+        chunkFilename: utils.assetsPath('js/[name].[chunkhash:8].js'),
     },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            vendor: {
+                test: (module) => /node_modules/.test(module.context),
+                chunks: "initial",
+                name: "vendor",
+                enforce: true
+              }
+          }
+        }
+      },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': env,
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-            sourceMap: true,
+            'process.env': config.build.env,
         }),
         new ExtractTextPlugin({
-            filename: utils.assetsPath('css/[name].[contenthash].css'),
+            filename: utils.assetsPath('css/[name].[contenthash:8].css'),
         }),
         new OptimizeCSSPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: module => (
-                module.resource &&
-                /\.js$/.test(module.resource) &&
-                module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0
-            ),
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            chunks: ['vendor'],
-        }),
         new CopyWebpackPlugin([
             {
                 from: path.resolve(__dirname, '../static'),
