@@ -19,7 +19,7 @@ const htmlPlugins = pages.map(page => (
             removeAttributeQuotes: true,
         },
         chunksSortMode: 'dependency',
-        hash: true
+        hash: true,
     }))
 ));
 
@@ -36,16 +36,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
     optimization: {
         splitChunks: {
-          cacheGroups: {
-            vendor: {
-                test: (module) => /node_modules/.test(module.context),
-                chunks: "initial",
-                name: "vendor",
-                enforce: true
-              }
-          }
-        }
-      },
+            cacheGroups: {
+                vendor: {
+                    test: module => /node_modules/.test(module.context),
+                    chunks: 'initial',
+                    name: 'vendor',
+                    enforce: true,
+                },
+            },
+        },
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': config.build.env,
