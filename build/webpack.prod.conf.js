@@ -22,7 +22,7 @@ const htmlPlugins = pages.map(page => (
     }))
 ));
 
-const env = config.build.env;
+const { env } = config.build;
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: 'production',
@@ -85,7 +85,7 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
     webpackConfig.plugins.push(new BundleAnalyzerPlugin());
 }
 

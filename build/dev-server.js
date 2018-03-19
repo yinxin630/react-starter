@@ -15,7 +15,7 @@ const webpackConfig = require('./webpack.dev.conf');
 const host = process.env.HOST || config.dev.host;
 const port = process.env.PORT || config.dev.port;
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
-const proxyTable = config.dev.proxyTable;
+const { proxyTable } = config.dev;
 
 const app = express();
 const compiler = webpack(webpackConfig);
@@ -31,7 +31,6 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 
 compiler.plugin('compilation', (compilation) => {
     compilation.plugin('html-webpack-plugin-after-emit', (data, cb) => {
-        hotMiddleware.publish({ action: 'reload' });
         cb();
     });
 });

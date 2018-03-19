@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import Hello from './components/Hello';
 
 // App can't be stateless component
-export default class App extends Component {
+class App extends Component {
     constructor(...args) {
         super(...args);
         this.state = {
@@ -22,3 +23,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default hot(module)(App);
