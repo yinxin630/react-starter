@@ -25,6 +25,7 @@ const htmlPlugins = pages.map(page => (
 const env = config.build.env;
 
 const webpackConfig = merge(baseWebpackConfig, {
+    mode: 'production',
     module: {
         rules: utils.getStyleLoaders(),
     },
